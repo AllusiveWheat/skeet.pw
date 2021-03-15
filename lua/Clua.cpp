@@ -1450,7 +1450,7 @@ void c_lua::refresh_scripts()
 
 	if (SUCCEEDED(SHGetFolderPath(NULL, CSIDL_APPDATA, NULL, NULL, path)))
 	{
-		folder = std::string(path) + crypt_str("\\skeet.idb\\Scripts\\");
+		folder = std::string(path) + crypt_str("\\skeet.pw\\Scripts\\");
 
 		auto i = 0;
 

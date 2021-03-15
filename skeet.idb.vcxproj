@@ -144,6 +144,9 @@
       <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
       <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
       <UACUIAccess>true</UACUIAccess>
+      <TreatLinkerWarningAsErrors>false</TreatLinkerWarningAsErrors>
+      <LinkStatus>true</LinkStatus>
+      <AdditionalOptions> /ignore:4228 %(AdditionalOptions)</AdditionalOptions>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -239,6 +242,7 @@
     <ClCompile Include="lua\lua\src\ltable.c" />
     <ClCompile Include="lua\lua\src\ltablib.c" />
     <ClCompile Include="lua\lua\src\ltm.c" />
+    <ClCompile Include="lua\lua\src\lua.c" />
     <ClCompile Include="lua\lua\src\luac.c" />
     <ClCompile Include="lua\lua\src\lundump.c" />
     <ClCompile Include="lua\lua\src\lutf8lib.c" />
@@ -400,6 +404,7 @@
     <ClInclude Include="lua\lua\src\lstring.h" />
     <ClInclude Include="lua\lua\src\ltable.h" />
     <ClInclude Include="lua\lua\src\ltm.h" />
+    <ClInclude Include="lua\lua\src\lua.h" />
     <ClInclude Include="lua\lua\src\lua.hpp" />
     <ClInclude Include="lua\lua\src\luaconf.h" />
     <ClInclude Include="lua\lua\src\lualib.h" />
@@ -513,6 +518,7 @@
     <Library Include="ImGui\win32\freetype.lib" />
     <Library Include="libcrypto.lib" />
     <Library Include="libssl.lib" />
+    <Library Include="Lua.lib" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

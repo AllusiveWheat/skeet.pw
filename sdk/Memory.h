@@ -6,6 +6,7 @@
 #include <Windows.h>
 #include <Psapi.h>
 #include "ItemSchema.h"
+#include <xlocmon>
 
 class ItemSchema;
 
@@ -20,7 +21,7 @@ public:
 	int(__thiscall* equipWearable)(void* wearable, void* player);
 
 private:
-    static std::uintptr_t findPattern(const char* module, const char* pattern, size_t offset = 0) noexcept
+    static std::uintptr_t findPattern(const char* module , const char* pattern, size_t offset = 0) noexcept
     {
         static auto id = 0;
         ++id;
@@ -44,7 +45,7 @@ private:
 
             if (!*second)
                 return reinterpret_cast<std::uintptr_t>(const_cast<char*>(start) + offset);
-        }
+        };
  
         return 0;
     }
