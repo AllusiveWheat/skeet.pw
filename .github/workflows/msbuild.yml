@@ -1,0 +1,55 @@
+name: MSBuild
+
+on: [push]
+
+env:
+  # Configuration type to build.
+  # You can convert this to a build matrix if you need coverage of multiple configuration types.
+  # https://docs.github.com/actions/learn-github-actions/managing-complex-workflows#using-a-build-matrix
+  BUILD_CONFIGURATION: skeet.pw
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Add MSBuild to PATH
+      uses: microsoft/setup-msbuild@v1
+    
+    # Activate cache
+    - name: Start DXSDK Cache
+      id:   dxcache
+      uses: actions/cache@v1
+      with:
+       path: DXSDK
+       key:  dxsdk-includes
+      
+    # Download DXSDK if needed, otherwise use cache
+    # Only extract files that are required
+    - name:  Download DXSDK if needed
+      if:    steps.dxcache.outputs.cache-hit != 'true'
+      run:   |
+         curl -L https://download.microsoft.com/download/a/e/7/ae743f1f-632b-4809-87a9-aa1bb3458e31/DXSDK_Jun10.exe -o _DX2010_.exe
+         7z x _DX2010_.exe DXSDK/Include
+         7z x _DX2010_.exe DXSDK/Lib/x86
+         rm -fR _DX*_ _DX*_.exe
+      shell: bash
+
+    - name: Build
+      working-directory: ${{env.GITHUB_WORKSPACE}}
+      # Add additional options to the MSBuild command line here (like platform or verbosity level).
+      # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
+      run: msbuild skeet.pw.sln /m /p:Configuration=${{env.BUILD_CONFIGURATION}}
+      env:
+        DXSDK_DIR: ${{ github.workspace }}\DXSDK\
+        
+    - name: SHA1
+      working-directory: build/Win32/Release
+      run: sha1sum skeet.pw.dll > skeet.pw.dll.sha1
+      
+    - uses: actions/upload-artifact@v1
+      with:
+        name: Release
+        path: build/Win32/Release
