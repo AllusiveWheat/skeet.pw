@@ -58,6 +58,7 @@ typedef struct LG {
 #if !defined(luai_makeseed)
 
 #include <time.h>
+#include <lua.h>
 
 /*
 ** Compute an initial seed with some level of randomness.

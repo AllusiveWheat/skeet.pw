@@ -81,10 +81,10 @@ typedef struct lua_State lua_State;
 
 
 /* predefined values in the registry */
-#define LUA_RIDX_MAINTHREAD	1
+//#define LUA_RIDX_MAINTHREAD	1
 #define LUA_RIDX_GLOBALS	2
 #define LUA_RIDX_LAST		LUA_RIDX_GLOBALS
-
+#define  LUA_RIDX_MAINTHREAD  1
 
 /* type of numbers in Lua */
 typedef LUA_NUMBER lua_Number;
