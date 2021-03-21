@@ -764,7 +764,7 @@ void C_ConfigManager::config_files()
 	get_dir();
 	files.clear();
 
-	std::string path = folder + crypt_str("/*.idb");
+	std::string path = folder + crypt_str("/*.pw");
 	WIN32_FIND_DATA fd;
 
 	HANDLE hFind = FindFirstFile(path.c_str(), &fd);

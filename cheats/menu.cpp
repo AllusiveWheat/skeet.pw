@@ -283,7 +283,7 @@ void load_config()
 	cfg_manager->load(cfg_manager->files.at(g_cfg.selected_config), true);
 	cfg_manager->config_files();
 
-	eventlogs::get().add(crypt_str("Loaded ") + files.at(g_cfg.selected_config) + crypt_str("idb config"), false);
+	eventlogs::get().add(crypt_str("Loaded ") + files.at(g_cfg.selected_config) + crypt_str("pw config"), false);
 }
 
 void save_config()
@@ -345,8 +345,8 @@ void add_config()
 
 	eventlogs::get().add(crypt_str("Added ") + g_cfg.new_config_name + crypt_str(" config"), false);
 
-	if (g_cfg.new_config_name.find(crypt_str(".idb")) == std::string::npos)
-		g_cfg.new_config_name += crypt_str(".idb");
+	if (g_cfg.new_config_name.find(crypt_str(".pw")) == std::string::npos)
+		g_cfg.new_config_name += crypt_str(".pw");
 
 	cfg_manager->save(g_cfg.new_config_name);
 	cfg_manager->config_files();
