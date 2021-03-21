@@ -260,7 +260,7 @@ namespace ns_menu
 				return false;
 		}
 
-		auto& it = find_item(c_lua::get().items, name);
+		auto it = find_item(c_lua::get().items, name);
 
 		if (it.type == NEXT_LINE)
 		{
@@ -292,7 +292,7 @@ namespace ns_menu
 				return 0;
 		}
 
-		auto& it = find_item(c_lua::get().items, name);
+		auto it = find_item(c_lua::get().items, name);
 
 		if (it.type == NEXT_LINE)
 		{
@@ -324,7 +324,7 @@ namespace ns_menu
 				return 0.0f;
 		}
 
-		auto& it = find_item(c_lua::get().items, name);
+		auto it = find_item(c_lua::get().items, name);
 
 		if (it.type == NEXT_LINE)
 		{
@@ -356,7 +356,7 @@ namespace ns_menu
 				return Color::White;
 		}
 
-		auto& it = find_item(c_lua::get().items, name);
+		auto it = find_item(c_lua::get().items, name);
 
 		if (it.type == NEXT_LINE)
 		{
