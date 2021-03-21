@@ -3,7 +3,7 @@
 ** Lua stand-alone interpreter
 ** See Copyright Notice in lua.h
 */
-
+// You need Lua.lib
 #define lua_c
 
 #include "lprefix.h"
