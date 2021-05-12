@@ -34,7 +34,7 @@ DWORD WINAPI main(PVOID base)
 		crypt_str("55 8B EC 83 E4 F0 B8 D8"),
 		crypt_str("55 8B EC 83 E4 F8 81 EC ? ? ? ? 53 56 8B F1 57 89 74 24 1C"),
 		crypt_str("55 8B EC 83 E4 F0 B8 ? ? ? ? E8 ? ? ? ? 56 8B 75 08 57 8B F9 85 F6"),
-		crypt_str("55 8B EC 51 56 8B F1 80 BE ? ? ? ? ? 74 36"),
+		crypt_str("55 8B EC 83 E4 F8 83 EC 5C 53 8B D9 56 57 81"),// old sig "55 8B EC 51 56 8B F1 80 BE ? ? ? ? ? 74 36"
 		crypt_str("56 8B F1 8B 8E ? ? ? ? 83 F9 FF 74 21"),
 		crypt_str("55 8B EC 83 E4 F8 83 EC 5C 53 8B D9 56 57 83"),
 		crypt_str("55 8B EC A1 ? ? ? ? 83 EC 10 56 8B F1 B9"),
@@ -263,9 +263,9 @@ __forceinline void setup_hooks()
 
 	static auto updateclientsideanimation = (DWORD)(util::FindSignature(crypt_str("client.dll"), g_ctx.signatures.at(13).c_str()));
 	hooks::original_updateclientsideanimation = (DWORD)DetourFunction((PBYTE)updateclientsideanimation, (PBYTE)hooks::hooked_updateclientsideanimation);
-/// Dosen't Work
-	//static auto physicssimulate = (DWORD)(util::FindSignature(crypt_str("client.dll"), g_ctx.signatures.at(14).c_str()));
-//	hooks::original_physicssimulate = (DWORD)DetourFunction((PBYTE)physicssimulate, (PBYTE)hooks::hooked_physicssimulate);
+/// Sig Update
+	static auto physicssimulate = (DWORD)(util::FindSignature(crypt_str("client.dll"), g_ctx.signatures.at(14).c_str()));
+	hooks::original_physicssimulate = (DWORD)DetourFunction((PBYTE)physicssimulate, (PBYTE)hooks::hooked_physicssimulate);
 
 	static auto modifyeyeposition = (DWORD)(util::FindSignature(crypt_str("client.dll"), g_ctx.signatures.at(15).c_str()));
 	hooks::original_modifyeyeposition = (DWORD)DetourFunction((PBYTE)modifyeyeposition, (PBYTE)hooks::hooked_modifyeyeposition);
