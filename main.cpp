@@ -19,30 +19,30 @@ __forceinline void setup_hooks();
 
 DWORD WINAPI main(PVOID base)
 {
-	g_ctx.signatures =
-	{
-		crypt_str("A1 ? ? ? ? 50 8B 08 FF 51 0C"),
-		crypt_str("B9 ?? ?? ?? ?? A1 ?? ?? ?? ?? FF 10 A1 ?? ?? ?? ?? B9"),
-		crypt_str("0F 11 05 ?? ?? ?? ?? 83 C8 01"),
-		crypt_str("8B 0D ?? ?? ?? ?? 8B 46 08 68"),
-		crypt_str("B9 ? ? ? ? F3 0F 11 04 24 FF 50 10"),
-		crypt_str("8B 3D ? ? ? ? 85 FF 0F 84 ? ? ? ? 81 C7"),
-		crypt_str("A1 ? ? ? ? 8B 0D ? ? ? ? 6A 00 68 ? ? ? ? C6"),
-		crypt_str("80 3D ? ? ? ? ? 53 56 57 0F 85"),
-		crypt_str("55 8B EC 83 E4 F8 83 EC 18 56 57 8B F9 89 7C 24 0C"),
-		crypt_str("80 3D ? ? ? ? ? 74 06 B8"),
-		crypt_str("55 8B EC 83 E4 F0 B8 D8"),
-		crypt_str("55 8B EC 83 E4 F8 81 EC ? ? ? ? 53 56 8B F1 57 89 74 24 1C"),
-		crypt_str("55 8B EC 83 E4 F0 B8 ? ? ? ? E8 ? ? ? ? 56 8B 75 08 57 8B F9 85 F6"),
-		crypt_str("55 8B EC 83 E4 F8 83 EC 5C 53 8B D9 56 57 81"),// old sig "55 8B EC 51 56 8B F1 80 BE ? ? ? ? ? 74 36"
-		crypt_str("56 8B F1 8B 8E ? ? ? ? 83 F9 FF 74 21"),
-		crypt_str("55 8B EC 83 E4 F8 83 EC 5C 53 8B D9 56 57 83"),
-		crypt_str("55 8B EC A1 ? ? ? ? 83 EC 10 56 8B F1 B9"),
-		crypt_str("57 8B F9 8B 07 8B 80 ? ? ? ? FF D0 84 C0 75 02"),
-		crypt_str("55 8B EC 81 EC ? ? ? ? 53 8B D9 89 5D F8 80"),
-		crypt_str("53 0F B7 1D ? ? ? ? 56"),
-		crypt_str("8B 0D ? ? ? ? 8D 95 ? ? ? ? 6A 00 C6")
-	};
+	    g_ctx.signatures =
+    {
+        crypt_str("A1 ? ? ? ? 50 8B 08 FF 51 0C"),
+        crypt_str("B9 ?? ?? ?? ?? A1 ?? ?? ?? ?? FF 10 A1 ?? ?? ?? ?? B9"),
+        crypt_str("0F 11 05 ?? ?? ?? ?? 83 C8 01"),
+        crypt_str("8B 0D ?? ?? ?? ?? 8B 46 08 68"),
+        crypt_str("B9 ? ? ? ? F3 0F 11 04 24 FF 50 10"),
+        crypt_str("8B 3D ? ? ? ? 85 FF 0F 84 ? ? ? ? 81 C7"),
+        crypt_str("A1 ? ? ? ? 8B 0D ? ? ? ? 6A 00 68 ? ? ? ? C6"),
+        crypt_str("80 3D ? ? ? ? ? 53 56 57 0F 85"),
+        crypt_str("55 8B EC 83 E4 F8 83 EC 18 56 57 8B F9 89 7C 24 0C"),
+        crypt_str("80 3D ? ? ? ? ? 74 06 B8"),
+        crypt_str("55 8B EC 83 E4 F0 B8 D8"),
+        crypt_str("55 8B EC 83 E4 F8 81 EC ? ? ? ? 53 56 8B F1 57 89 74 24 1C"),
+        crypt_str("55 8B EC 83 E4 F0 B8 ? ? ? ? E8 ? ? ? ? 56 8B 75 08 57 8B F9 85 F6"),
+        crypt_str("55 8B EC 51 56 8B F1 80 BE ? ? ? ? ? 74 36"),
+        crypt_str("56 8B F1 8B 8E ? ? ? ? 83 F9 FF 74 23"),
+        crypt_str("55 8B EC 83 E4 F8 83 EC 5C 53 8B D9 56 57 83"),
+        crypt_str("55 8B EC A1 ? ? ? ? 83 EC 10 56 8B F1 B9"),
+        crypt_str("57 8B F9 8B 07 8B 80 ? ? ? ? FF D0 84 C0 75 02"),
+        crypt_str("55 8B EC 81 EC ? ? ? ? 53 8B D9 89 5D F8 80"),
+        crypt_str("53 0F B7 1D ? ? ? ? 56"),
+        crypt_str("8B 0D ? ? ? ? 8D 95 ? ? ? ? 6A 00 C6")
+    };
 
 	g_ctx.indexes =
 	{
