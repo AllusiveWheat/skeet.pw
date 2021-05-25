@@ -1,4 +1,6 @@
 # skeet.pw
+**NO LONGER MAINTINED**
+
 legendware paste 
 
 Updated. Unstable Inject With CSGhost 3.0. 3.1 will error
